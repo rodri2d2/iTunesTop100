@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B06B7A2262052CC00F57533 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06B7A1262052CC00F57533 /* APIRequest.swift */; };
+		5B06B7A62620549200F57533 /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06B7A52620549200F57533 /* HttpMethods.swift */; };
+		5B5AF3FD2620D968000F7174 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF3FC2620D968000F7174 /* APIError.swift */; };
+		5B5AF4012620D9FA000F7174 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF4002620D9FA000F7174 /* NetworkService.swift */; };
+		5B5AF4072620DE22000F7174 /* ListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF4062620DE22000F7174 /* ListResult.swift */; };
+		5B5AF40C2620E0CC000F7174 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF40B2620E0CC000F7174 /* Feed.swift */; };
+		5B5AF40F2620E12C000F7174 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF40E2620E12C000F7174 /* FeedResponse.swift */; };
+		5B5AF4122620E1A7000F7174 /* FeedResquest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF4112620E1A7000F7174 /* FeedResquest.swift */; };
 		5BFCA410261F54C000417AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCA40F261F54C000417AD1 /* AppDelegate.swift */; };
 		5BFCA412261F54C000417AD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCA411261F54C000417AD1 /* SceneDelegate.swift */; };
 		5BFCA414261F54C000417AD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCA413261F54C000417AD1 /* ViewController.swift */; };
@@ -15,6 +23,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B06B7A1262052CC00F57533 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		5B06B7A52620549200F57533 /* HttpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethods.swift; sourceTree = "<group>"; };
+		5B5AF3FC2620D968000F7174 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		5B5AF4002620D9FA000F7174 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		5B5AF4062620DE22000F7174 /* ListResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListResult.swift; sourceTree = "<group>"; };
+		5B5AF40B2620E0CC000F7174 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		5B5AF40E2620E12C000F7174 /* FeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResponse.swift; sourceTree = "<group>"; };
+		5B5AF4112620E1A7000F7174 /* FeedResquest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedResquest.swift; sourceTree = "<group>"; };
 		5BFCA40C261F54C000417AD1 /* iTunesTop100.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesTop100.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFCA40F261F54C000417AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BFCA411261F54C000417AD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +51,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B06B79F2620529800F57533 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5B5AF4042620DD3E000F7174 /* ResponseModels */,
+				5B5AF4032620DD2F000F7174 /* RequestModels */,
+				5B06B7A0262052B600F57533 /* Utils */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5B06B7A0262052B600F57533 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5B06B7A1262052CC00F57533 /* APIRequest.swift */,
+				5B06B7A52620549200F57533 /* HttpMethods.swift */,
+				5B5AF3FC2620D968000F7174 /* APIError.swift */,
+				5B5AF4002620D9FA000F7174 /* NetworkService.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		5B5AF4032620DD2F000F7174 /* RequestModels */ = {
+			isa = PBXGroup;
+			children = (
+				5B5AF4112620E1A7000F7174 /* FeedResquest.swift */,
+			);
+			path = RequestModels;
+			sourceTree = "<group>";
+		};
+		5B5AF4042620DD3E000F7174 /* ResponseModels */ = {
+			isa = PBXGroup;
+			children = (
+				5B5AF40E2620E12C000F7174 /* FeedResponse.swift */,
+			);
+			path = ResponseModels;
+			sourceTree = "<group>";
+		};
+		5B5AF4052620DD6A000F7174 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B5AF4062620DE22000F7174 /* ListResult.swift */,
+				5B5AF40B2620E0CC000F7174 /* Feed.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5BFCA403261F54C000417AD1 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				5BFCA427261F55C600417AD1 /* App */,
+				5B06B79F2620529800F57533 /* Networking */,
+				5B5AF4052620DD6A000F7174 /* Models */,
 				5BFCA413261F54C000417AD1 /* ViewController.swift */,
 				5BFCA418261F54C000417AD1 /* Assets.xcassets */,
 			);
@@ -141,9 +205,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B06B7A62620549200F57533 /* HttpMethods.swift in Sources */,
+				5B5AF40C2620E0CC000F7174 /* Feed.swift in Sources */,
 				5BFCA414261F54C000417AD1 /* ViewController.swift in Sources */,
 				5BFCA410261F54C000417AD1 /* AppDelegate.swift in Sources */,
+				5B06B7A2262052CC00F57533 /* APIRequest.swift in Sources */,
 				5BFCA412261F54C000417AD1 /* SceneDelegate.swift in Sources */,
+				5B5AF4122620E1A7000F7174 /* FeedResquest.swift in Sources */,
+				5B5AF40F2620E12C000F7174 /* FeedResponse.swift in Sources */,
+				5B5AF3FD2620D968000F7174 /* APIError.swift in Sources */,
+				5B5AF4072620DE22000F7174 /* ListResult.swift in Sources */,
+				5B5AF4012620D9FA000F7174 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
