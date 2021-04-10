@@ -20,8 +20,14 @@ protocol APIRequest {
 extension APIRequest{
     
     var baseURL: URL {
-        guard let baseURL = URL(string: apiURL) else { fatalError("URL not valid") }
-        return baseURL
+        
+        get{
+            guard let baseURL = URL(string: apiURL) else { fatalError("URL not valid") }
+            return baseURL
+        }
+        
+        set{  }
+
     }
     
     func baseRequest() -> URLRequest {
