@@ -9,5 +9,10 @@ import Foundation
 
 
 struct Feed: Codable {
-    let resulst: [ListResult]
+    
+    enum CodingKeys: String, CodingKey {
+        case songList = "result"
+    }
+    
+    let songList: [ListResult]
 }

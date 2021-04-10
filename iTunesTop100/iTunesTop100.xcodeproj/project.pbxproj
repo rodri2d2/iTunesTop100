@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B002F2B26220AC50043A88A /* RemoteManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F2A26220AC50043A88A /* RemoteManagerProtocol.swift */; };
+		5B002F3126220B410043A88A /* RemoteManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F3026220B400043A88A /* RemoteManagerImpl.swift */; };
+		5B002F3626220CDA0043A88A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F3526220CDA0043A88A /* DataManager.swift */; };
+		5B002F3E26220EFA0043A88A /* SongListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F3D26220EFA0043A88A /* SongListDataManager.swift */; };
+		5B002F48262210D40043A88A /* iTunesTop100DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F47262210D40043A88A /* iTunesTop100DataManagerTests.swift */; };
 		5B06B7A2262052CC00F57533 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06B7A1262052CC00F57533 /* APIRequest.swift */; };
 		5B06B7A62620549200F57533 /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06B7A52620549200F57533 /* HttpMethods.swift */; };
 		5B5AF3FD2620D968000F7174 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF3FC2620D968000F7174 /* APIError.swift */; };
@@ -34,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B002F2A26220AC50043A88A /* RemoteManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteManagerProtocol.swift; sourceTree = "<group>"; };
+		5B002F3026220B400043A88A /* RemoteManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteManagerImpl.swift; sourceTree = "<group>"; };
+		5B002F3526220CDA0043A88A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		5B002F3D26220EFA0043A88A /* SongListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListDataManager.swift; sourceTree = "<group>"; };
+		5B002F47262210D40043A88A /* iTunesTop100DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesTop100DataManagerTests.swift; sourceTree = "<group>"; };
 		5B06B7A1262052CC00F57533 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		5B06B7A52620549200F57533 /* HttpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethods.swift; sourceTree = "<group>"; };
 		5B5AF3FC2620D968000F7174 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -72,6 +82,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B002F2926220AA70043A88A /* DataManagers */ = {
+			isa = PBXGroup;
+			children = (
+				5B002F3426220C280043A88A /* Remote */,
+				5B002F3526220CDA0043A88A /* DataManager.swift */,
+			);
+			path = DataManagers;
+			sourceTree = "<group>";
+		};
+		5B002F3426220C280043A88A /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				5B002F2A26220AC50043A88A /* RemoteManagerProtocol.swift */,
+				5B002F3026220B400043A88A /* RemoteManagerImpl.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		5B002F3B26220E8B0043A88A /* SongList */ = {
+			isa = PBXGroup;
+			children = (
+				5B5AF4052620DD6A000F7174 /* Models */,
+				5B002F4426220FF00043A88A /* Views */,
+				5B002F3C26220EDF0043A88A /* ViewModel */,
+				5B002F4326220FDC0043A88A /* Controllers */,
+			);
+			path = SongList;
+			sourceTree = "<group>";
+		};
+		5B002F3C26220EDF0043A88A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5B002F4326220FDC0043A88A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5BFCA413261F54C000417AD1 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5B002F4426220FF00043A88A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		5B06B79F2620529800F57533 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +173,7 @@
 		5B5AF4052620DD6A000F7174 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B002F3D26220EFA0043A88A /* SongListDataManager.swift */,
 				5B5AF4062620DE22000F7174 /* ListResult.swift */,
 				5B5AF40B2620E0CC000F7174 /* Feed.swift */,
 			);
@@ -122,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				5B5AF41E262200B2000F7174 /* iTunesTop100RequestTests.swift */,
+				5B002F47262210D40043A88A /* iTunesTop100DataManagerTests.swift */,
 				5B5AF420262200B2000F7174 /* Info.plist */,
 			);
 			path = iTunesTop100Tests;
@@ -150,8 +213,8 @@
 			children = (
 				5BFCA427261F55C600417AD1 /* App */,
 				5B06B79F2620529800F57533 /* Networking */,
-				5B5AF4052620DD6A000F7174 /* Models */,
-				5BFCA413261F54C000417AD1 /* ViewController.swift */,
+				5B002F2926220AA70043A88A /* DataManagers */,
+				5B002F3B26220E8B0043A88A /* SongList */,
 				5BFCA418261F54C000417AD1 /* Assets.xcassets */,
 			);
 			path = iTunesTop100;
@@ -268,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B5AF41F262200B2000F7174 /* iTunesTop100RequestTests.swift in Sources */,
+				5B002F48262210D40043A88A /* iTunesTop100DataManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,14 +342,18 @@
 				5B06B7A62620549200F57533 /* HttpMethods.swift in Sources */,
 				5B5AF40C2620E0CC000F7174 /* Feed.swift in Sources */,
 				5BFCA414261F54C000417AD1 /* ViewController.swift in Sources */,
+				5B002F3626220CDA0043A88A /* DataManager.swift in Sources */,
 				5BFCA410261F54C000417AD1 /* AppDelegate.swift in Sources */,
 				5B06B7A2262052CC00F57533 /* APIRequest.swift in Sources */,
 				5BFCA412261F54C000417AD1 /* SceneDelegate.swift in Sources */,
 				5B5AF4122620E1A7000F7174 /* FeedResquest.swift in Sources */,
+				5B002F3126220B410043A88A /* RemoteManagerImpl.swift in Sources */,
 				5B5AF40F2620E12C000F7174 /* FeedResponse.swift in Sources */,
 				5B5AF3FD2620D968000F7174 /* APIError.swift in Sources */,
+				5B002F3E26220EFA0043A88A /* SongListDataManager.swift in Sources */,
 				5B5AF4072620DE22000F7174 /* ListResult.swift in Sources */,
 				5B5AF4012620D9FA000F7174 /* NetworkService.swift in Sources */,
+				5B002F2B26220AC50043A88A /* RemoteManagerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
