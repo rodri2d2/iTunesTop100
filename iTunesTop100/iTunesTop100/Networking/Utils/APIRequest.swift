@@ -8,7 +8,7 @@
 import Foundation
 
 
-let apiURL = "https://rss.itunes.apple.com/api/v1/es/apple-music/top-songs/all/100/explicit.json"
+let apiURL = "https://rss.itunes.apple.com/api/v1/es/itunes-music/top-songs/all/100/explicit.json"
 
 protocol APIRequest {
     

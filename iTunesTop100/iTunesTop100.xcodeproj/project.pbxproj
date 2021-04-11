@@ -16,6 +16,7 @@
 		5B002F522622202E0043A88A /* SongListViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F512622202E0043A88A /* SongListViewModelDelegate.swift */; };
 		5B002F57262221220043A88A /* UiView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F56262221220043A88A /* UiView+Ext.swift */; };
 		5B002F5F26222AE50043A88A /* WaterRelatedWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F5E26222AE50043A88A /* WaterRelatedWords.swift */; };
+		5B002F6326233EDB0043A88A /* WaterRelatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F6226233EDB0043A88A /* WaterRelatedCell.swift */; };
 		5B06B7A2262052CC00F57533 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06B7A1262052CC00F57533 /* APIRequest.swift */; };
 		5B06B7A62620549200F57533 /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06B7A52620549200F57533 /* HttpMethods.swift */; };
 		5B5AF3FD2620D968000F7174 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF3FC2620D968000F7174 /* APIError.swift */; };
@@ -52,6 +53,7 @@
 		5B002F512622202E0043A88A /* SongListViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListViewModelDelegate.swift; sourceTree = "<group>"; };
 		5B002F56262221220043A88A /* UiView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Ext.swift"; sourceTree = "<group>"; };
 		5B002F5E26222AE50043A88A /* WaterRelatedWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterRelatedWords.swift; sourceTree = "<group>"; };
+		5B002F6226233EDB0043A88A /* WaterRelatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterRelatedCell.swift; sourceTree = "<group>"; };
 		5B06B7A1262052CC00F57533 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		5B06B7A52620549200F57533 /* HttpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethods.swift; sourceTree = "<group>"; };
 		5B5AF3FC2620D968000F7174 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		5B002F4426220FF00043A88A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5B002F6226233EDB0043A88A /* WaterRelatedCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				5B5AF40C2620E0CC000F7174 /* Feed.swift in Sources */,
 				5B002F5F26222AE50043A88A /* WaterRelatedWords.swift in Sources */,
 				5BFCA414261F54C000417AD1 /* ViewController.swift in Sources */,
+				5B002F6326233EDB0043A88A /* WaterRelatedCell.swift in Sources */,
 				5B002F57262221220043A88A /* UiView+Ext.swift in Sources */,
 				5B002F3626220CDA0043A88A /* DataManager.swift in Sources */,
 				5BFCA410261F54C000417AD1 /* AppDelegate.swift in Sources */,
