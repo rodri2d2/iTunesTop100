@@ -43,4 +43,56 @@ extension UIView {
             bottomAnchor.constraint   (equalTo:   superview!.bottomAnchor  ).isActive  = true
         }
     }
+    
+    
+    /// Constraint a View by Top, Bottom, Leading and Trailing anchor
+    /// - Parameters:
+    ///   - superView: as type UIVIEW
+    ///   - withTop: as type CGFloat
+    ///   - botton: as type CGFloat and will be converto to Negative
+    ///   - leading: as type CGFloat
+    ///   - trailing:  as type CGFloat and will be converto to Negative
+    func constraintFourPoints(on superView: UIView, withTop: CGFloat, bottom: CGFloat, leading: CGFloat, trailing: CGFloat){
+
+        if let _ = superview {
+            translatesAutoresizingMaskIntoConstraints                                  = false
+            topAnchor.constraint      (equalTo:      superview!.topAnchor, constant: withTop  ).isActive  = true
+            leadingAnchor.constraint  (equalTo:  superview!.leadingAnchor, constant: leading  ).isActive  = true
+            trailingAnchor.constraint (equalTo: superview!.trailingAnchor, constant: -trailing  ).isActive  = true
+            bottomAnchor.constraint   (equalTo:   superview!.bottomAnchor, constant: -bottom  ).isActive  = true
+        }
+        
+    }
+    
+    
+    /// Constraint a View by Top, Leading and Trailing anchor
+    /// - Parameters:
+    ///   - superView: as type UIVIEW
+    ///   - withTop: as type CGFloat
+    ///   - leading: as type CGFloat
+    ///   - trailing: as type CGFloat and will be converto to Negative
+    func minimumConstraint(on superView: UIView, withTop: CGFloat, leading: CGFloat, trailing: CGFloat){
+        if let _ = superview {
+            translatesAutoresizingMaskIntoConstraints                                  = false
+            topAnchor.constraint      (equalTo:      superview!.topAnchor, constant: withTop  ).isActive  = true
+            leadingAnchor.constraint  (equalTo:  superview!.leadingAnchor, constant: leading  ).isActive  = true
+            trailingAnchor.constraint (equalTo: superview!.trailingAnchor, constant: -trailing  ).isActive  = true
+        }
+    }
+    
+    
+    /// Constraint a View by Top with safe are, normal Leading and Trailing anchor
+    /// - Parameters:
+    ///   - superView:  as type UIVIEW
+    ///   - withTop: as type CGFloat
+    ///   - leading: as type CGFloat
+    ///   - trailing: as type CGFloat and will be converto to Negative
+    func minimumSafetyConstraint(on superView: UIView, withTop: CGFloat, leading: CGFloat, trailing: CGFloat){
+        if let _ = superview {
+            translatesAutoresizingMaskIntoConstraints                                  = false
+            topAnchor.constraint      (equalTo:      superview!.safeAreaLayoutGuide.topAnchor, constant: withTop  ).isActive  = true
+            leadingAnchor.constraint  (equalTo:  superview!.leadingAnchor, constant: leading  ).isActive  = true
+            trailingAnchor.constraint (equalTo: superview!.trailingAnchor, constant: -trailing  ).isActive  = true
+        }
+    }
 }

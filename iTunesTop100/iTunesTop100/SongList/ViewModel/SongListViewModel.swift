@@ -13,8 +13,10 @@ class SongListViewModel{
     
     // MARK: - Class properties
     let dataManager: SongListDataManager
+    var viewModelDeledate: SongListViewModelDelegate?
     var hasWaterRelatedSong = false
-    var data: [ListResult] = []
+    var songList:         [CellViewModel] = []
+    var waterRelatedList: [CellViewModel] = []
     
     
     // MARK: - Lifecycle
@@ -23,13 +25,15 @@ class SongListViewModel{
     }
     
     // MARK: - Class functionalities
-    func loadData(){
+    private func loadData(){
         self.dataManager.fetchSongList { (result) in
             switch result {
             
             case .success(let response):
                 if let songList = response?.feed?.songList{
+                    self.prepareList(songList: songList)
                     self.searchForWaterRelateSongs(songList: songList)
+                    self.viewModelDeledate?.didFinishFetchSongList()
                 }
             
             case .failure(let error):
@@ -39,7 +43,15 @@ class SongListViewModel{
     }
     
     
-    func searchForWaterRelateSongs(songList: [ListResult]){
+    private func prepareList(songList: [ListResult]){
+        
+        for song in songList {
+            self.songList.append(SongListCellViewModel(song, dataManager: dataManager))
+        }
+        
+    }
+    
+    private func searchForWaterRelateSongs(songList: [ListResult]){
         
         let words = WaterRelatedWords.words()
         let aguaSongs = words.map { (word) -> [ListResult] in
@@ -47,7 +59,45 @@ class SongListViewModel{
                 list.songName.lowercased().contains(word)
             }
         }
-        
-        let aguaSongList = Array(aguaSongs.joined())
+     
+        let sanitizedArray = Array(aguaSongs.joined())
+    
+        self.waterRelatedList = sanitizedArray.map { (list) -> SongListCellViewModel in
+            return SongListCellViewModel(list, dataManager: self.dataManager)
+        }
     }
+    
+    func viewWasLoad(){
+        loadData()
+    }
+    
+}
+
+
+// MARK: - Extension to repond tableView demands
+extension SongListViewModel{
+    
+    func numberOfRows()->Int{
+        return self.songList.count
+    }
+    
+    func tableCellViewModel(indexPath: IndexPath) -> CellViewModel?{
+        guard indexPath.row < songList.count else { return nil }
+        return songList[indexPath.row]
+    }
+    
+}
+
+
+extension SongListViewModel{
+    
+    func numberOfItems() -> Int{
+        return self.waterRelatedList.count > 0 ? waterRelatedList.count : 0
+    }
+    
+    func collectionCellViewModel(indexPath: IndexPath) -> CellViewModel?{
+        guard indexPath.row < waterRelatedList.count else { return nil }
+        return waterRelatedList[indexPath.row]
+    }
+    
 }

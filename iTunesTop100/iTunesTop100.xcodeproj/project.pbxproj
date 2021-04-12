@@ -17,6 +17,9 @@
 		5B002F57262221220043A88A /* UiView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F56262221220043A88A /* UiView+Ext.swift */; };
 		5B002F5F26222AE50043A88A /* WaterRelatedWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F5E26222AE50043A88A /* WaterRelatedWords.swift */; };
 		5B002F6326233EDB0043A88A /* WaterRelatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F6226233EDB0043A88A /* WaterRelatedCell.swift */; };
+		5B002F6C2623469D0043A88A /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F6B2623469D0043A88A /* CellViewModel.swift */; };
+		5B002F70262346CE0043A88A /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F6F262346CE0043A88A /* CellType.swift */; };
+		5B002F742623477F0043A88A /* SongListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B002F732623477F0043A88A /* SongListCellViewModel.swift */; };
 		5B06B7A2262052CC00F57533 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06B7A1262052CC00F57533 /* APIRequest.swift */; };
 		5B06B7A62620549200F57533 /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B06B7A52620549200F57533 /* HttpMethods.swift */; };
 		5B5AF3FD2620D968000F7174 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF3FC2620D968000F7174 /* APIError.swift */; };
@@ -26,6 +29,8 @@
 		5B5AF40F2620E12C000F7174 /* FeedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF40E2620E12C000F7174 /* FeedResponse.swift */; };
 		5B5AF4122620E1A7000F7174 /* FeedResquest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF4112620E1A7000F7174 /* FeedResquest.swift */; };
 		5B5AF41F262200B2000F7174 /* iTunesTop100RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5AF41E262200B2000F7174 /* iTunesTop100RequestTests.swift */; };
+		5B876EA526234BF60099EE5F /* SongListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B876EA426234BF60099EE5F /* SongListCell.swift */; };
+		5B876EA926243FCE0099EE5F /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B876EA826243FCE0099EE5F /* UIColor+Ext.swift */; };
 		5BFCA410261F54C000417AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCA40F261F54C000417AD1 /* AppDelegate.swift */; };
 		5BFCA412261F54C000417AD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCA411261F54C000417AD1 /* SceneDelegate.swift */; };
 		5BFCA414261F54C000417AD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFCA413261F54C000417AD1 /* ViewController.swift */; };
@@ -54,6 +59,9 @@
 		5B002F56262221220043A88A /* UiView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiView+Ext.swift"; sourceTree = "<group>"; };
 		5B002F5E26222AE50043A88A /* WaterRelatedWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterRelatedWords.swift; sourceTree = "<group>"; };
 		5B002F6226233EDB0043A88A /* WaterRelatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterRelatedCell.swift; sourceTree = "<group>"; };
+		5B002F6B2623469D0043A88A /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
+		5B002F6F262346CE0043A88A /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
+		5B002F732623477F0043A88A /* SongListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListCellViewModel.swift; sourceTree = "<group>"; };
 		5B06B7A1262052CC00F57533 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		5B06B7A52620549200F57533 /* HttpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethods.swift; sourceTree = "<group>"; };
 		5B5AF3FC2620D968000F7174 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -65,6 +73,8 @@
 		5B5AF41C262200B2000F7174 /* iTunesTop100Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTunesTop100Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5AF41E262200B2000F7174 /* iTunesTop100RequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iTunesTop100RequestTests.swift; sourceTree = "<group>"; };
 		5B5AF420262200B2000F7174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B876EA426234BF60099EE5F /* SongListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListCell.swift; sourceTree = "<group>"; };
+		5B876EA826243FCE0099EE5F /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		5BFCA40C261F54C000417AD1 /* iTunesTop100.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTunesTop100.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BFCA40F261F54C000417AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BFCA411261F54C000417AD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +134,7 @@
 		5B002F3C26220EDF0043A88A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5B002F6A262346810043A88A /* CellViewModel */,
 				5B002F4D26221FFB0043A88A /* SongListViewModel.swift */,
 				5B002F512622202E0043A88A /* SongListViewModelDelegate.swift */,
 			);
@@ -142,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				5B002F6226233EDB0043A88A /* WaterRelatedCell.swift */,
+				5B876EA426234BF60099EE5F /* SongListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,8 +162,19 @@
 			isa = PBXGroup;
 			children = (
 				5B002F56262221220043A88A /* UiView+Ext.swift */,
+				5B876EA826243FCE0099EE5F /* UIColor+Ext.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		5B002F6A262346810043A88A /* CellViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5B002F6B2623469D0043A88A /* CellViewModel.swift */,
+				5B002F6F262346CE0043A88A /* CellType.swift */,
+				5B002F732623477F0043A88A /* SongListCellViewModel.swift */,
+			);
+			path = CellViewModel;
 			sourceTree = "<group>";
 		};
 		5B06B79F2620529800F57533 /* Networking */ = {
@@ -362,22 +385,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B876EA526234BF60099EE5F /* SongListCell.swift in Sources */,
 				5B06B7A62620549200F57533 /* HttpMethods.swift in Sources */,
 				5B002F4E26221FFB0043A88A /* SongListViewModel.swift in Sources */,
 				5B5AF40C2620E0CC000F7174 /* Feed.swift in Sources */,
 				5B002F5F26222AE50043A88A /* WaterRelatedWords.swift in Sources */,
 				5BFCA414261F54C000417AD1 /* ViewController.swift in Sources */,
 				5B002F6326233EDB0043A88A /* WaterRelatedCell.swift in Sources */,
+				5B876EA926243FCE0099EE5F /* UIColor+Ext.swift in Sources */,
 				5B002F57262221220043A88A /* UiView+Ext.swift in Sources */,
 				5B002F3626220CDA0043A88A /* DataManager.swift in Sources */,
 				5BFCA410261F54C000417AD1 /* AppDelegate.swift in Sources */,
 				5B06B7A2262052CC00F57533 /* APIRequest.swift in Sources */,
+				5B002F742623477F0043A88A /* SongListCellViewModel.swift in Sources */,
+				5B002F6C2623469D0043A88A /* CellViewModel.swift in Sources */,
 				5B002F522622202E0043A88A /* SongListViewModelDelegate.swift in Sources */,
 				5BFCA412261F54C000417AD1 /* SceneDelegate.swift in Sources */,
 				5B5AF4122620E1A7000F7174 /* FeedResquest.swift in Sources */,
 				5B002F3126220B410043A88A /* RemoteManagerImpl.swift in Sources */,
 				5B5AF40F2620E12C000F7174 /* FeedResponse.swift in Sources */,
 				5B5AF3FD2620D968000F7174 /* APIError.swift in Sources */,
+				5B002F70262346CE0043A88A /* CellType.swift in Sources */,
 				5B002F3E26220EFA0043A88A /* SongListDataManager.swift in Sources */,
 				5B5AF4072620DE22000F7174 /* ListResult.swift in Sources */,
 				5B5AF4012620D9FA000F7174 /* NetworkService.swift in Sources */,
