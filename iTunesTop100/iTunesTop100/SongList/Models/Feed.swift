@@ -11,7 +11,7 @@ import Foundation
 struct Feed: Codable {
     
     enum CodingKeys: String, CodingKey {
-        case songList = "result"
+        case songList = "results"
     }
     
     let songList: [ListResult]
