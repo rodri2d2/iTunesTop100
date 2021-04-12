@@ -5,7 +5,7 @@
 //  Created by Rodrigo  Candido on 9/4/21.
 //
 
-import Foundation
+import UIKit
 
 class NetworkService: NSObject{
     
@@ -56,4 +56,17 @@ class NetworkService: NSObject{
         task.resume()
     }
     
+    
+    func fetchImage(imageUrl: String, size: String, completion: @escaping (Data) -> ()) {
+        DispatchQueue.global(qos: .default).async {
+      
+            let sanatizedImageUrl = imageUrl.replacingOccurrences(of: "200", with: size)
+            if let url = URL(string: sanatizedImageUrl),
+               let data = try? Data(contentsOf: url) {
+                DispatchQueue.main.async {
+                    completion(data)
+                }
+            }
+        }
+    }
 }

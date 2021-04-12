@@ -10,11 +10,18 @@ import UIKit
 class WaterRelatedCell: UICollectionViewCell {
     
     // MARK: - Class properties
-    var viewModel: SongListCellViewModel?{
+    var viewModel: WaterRelatedCellViewModel?{
         didSet{
             guard let viewModel = viewModel else { return  }
+            self.viewModel?.delegate = self
             self.artistLabel.text = viewModel.artistNameText
             self.songLabel.text = viewModel.songNameText
+            
+            
+            if let image = viewModel.albumImage{
+                self.albumImageView.image = UIImage(data: image)
+                
+            }
         }
     }
     
@@ -27,14 +34,14 @@ class WaterRelatedCell: UICollectionViewCell {
     
     private lazy var albumImageView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(systemName: "person")
         view.contentMode = .scaleAspectFit
+        
         return view
     }()
     
     private lazy var artistLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 16)
+        view.font = UIFont.systemFont(ofSize: 14)
         view.numberOfLines = 1
         view.textAlignment = .left
         view.lineBreakMode = .byTruncatingTail
@@ -44,7 +51,7 @@ class WaterRelatedCell: UICollectionViewCell {
     
     private lazy var songLabel: UILabel = {
         let view = UILabel()
-        view.font = UIFont.systemFont(ofSize: 14)
+        view.font = UIFont.systemFont(ofSize: 12)
         view.textColor = .secondaryLabel
         view.numberOfLines = 1
         view.textAlignment = .left
@@ -61,6 +68,12 @@ class WaterRelatedCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        self.albumImageView.image = nil
+        self.artistLabel.text     = nil
+        self.songLabel.text       = nil
     }
     
 }
@@ -96,30 +109,55 @@ extension WaterRelatedCell{
         self.containerView.backgroundColor = .appBackground
     }
     
+    
     private func setupAlbumImageView(){
-        self.containerView.addSubview(albumImageView)
-        self.albumImageView.constraintFourPoints(on: containerView, withTop: 0, bottom: 50, leading: 16, trailing: 16)
+        
+        containerView.addSubview(albumImageView)
+        self.albumImageView.constraintFourPoints(on: containerView, withTop: 0, bottom: 50, leading: 0, trailing: 0)
         
         //Design
-        
-        albumImageView.layer.backgroundColor = UIColor.white.cgColor
-        albumImageView.layer.cornerRadius = CGFloat(8)
+        albumImageView.layer.masksToBounds = true
+        albumImageView.layer.cornerRadius = CGFloat(16)
         albumImageView.layer.shadowRadius = CGFloat(4)
         albumImageView.layer.shadowColor = UIColor.gray.cgColor
-        albumImageView.layer.shadowOffset = CGSize(width: 2, height: 4)
+        albumImageView.layer.shadowOffset = CGSize(width: 2, height: 6)
         albumImageView.layer.shadowOpacity = 0.3
         
     }
     
     private func setupArtistLabel(){
         self.containerView.addSubview(artistLabel)
-        self.artistLabel.constraintFourPoints(on: containerView, withTop: 108, bottom: 16, leading: 16, trailing: 16)
+        self.artistLabel.constraintFourPoints(on: containerView, withTop: 108, bottom: 16, leading: 2, trailing: 2)
     }
     
     private func setupSongLabel(){
         self.containerView.addSubview(songLabel)
-        self.songLabel.constraintFourPoints(on: containerView, withTop: 132, bottom: 8, leading: 16, trailing: 16)
+        self.songLabel.constraintFourPoints(on: containerView, withTop: 132, bottom: 8, leading: 2, trailing: 2)
     }
     
     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// MARK: - Extension for SongListCellViewModelDelegate
+extension WaterRelatedCell: WaterRelatedCellViewModelDelegate{
+    func didFinishFetchImage() {
+        if let image = viewModel?.albumImage{
+            albumImageView.image = UIImage(data: image)
+        }
+    }
 }

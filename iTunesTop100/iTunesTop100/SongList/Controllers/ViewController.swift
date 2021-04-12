@@ -47,6 +47,17 @@ class ViewController: UIViewController {
     }()
     
     
+    private lazy var collectionTitle: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 14)
+        view.textColor = .secondaryLabel
+        view.textAlignment = .left
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.text = "Water related songs"
+        view.backgroundColor = .appBackground
+        return view
+    }()
+    
     // MARK: - Lifecycle
     init(viewModel: SongListViewModel) {
         self.viewModel = viewModel
@@ -91,6 +102,7 @@ extension ViewController{
     private func setupOutlets(){
         self.view.backgroundColor = .appBackground
         setupNavigationBar()
+        setupCollectionTitle()
         setupCollectionView()
         setupContainerView()
         setupTableView()
@@ -99,12 +111,35 @@ extension ViewController{
         self.title = "Songs..."
     }
     
+    private func setupCollectionTitle(){
+        
+        self.view.addSubview(collectionTitle)
+        
+        
+        NSLayoutConstraint.activate([
+            
+            self.collectionTitle.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            self.collectionTitle.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            self.collectionTitle.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+        ])
+        
+        
+    }
+    
     private func setupCollectionView(){
         
         self.view.addSubview(collectionView)
-        collectionView.minimumSafetyConstraint(on: self.view, withTop: 16, leading: 16, trailing: 16)
-        collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 0.5).isActive = true
         collectionView.backgroundColor = .appBackground
+        
+        //Constraints
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: self.collectionTitle.bottomAnchor, constant: 2),
+            collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16  ),
+            collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 0.5)
+        ])
+        
+        
         
     }
     
@@ -149,12 +184,17 @@ extension ViewController{
 // MARK: - Extensions for CollectionView
 //DataSouce
 extension ViewController: UICollectionViewDataSource{
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.viewModel.numberOfItems()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cellViewModel = self.viewModel.collectionCellViewModel(indexPath: indexPath) as? SongListCellViewModel{
+        if let cellViewModel = self.viewModel.collectionCellViewModel(indexPath: indexPath) as? WaterRelatedCellViewModel{
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WaterRelatedCell", for: indexPath) as? WaterRelatedCell{
                 cell.viewModel = cellViewModel
                 return cell
@@ -168,10 +208,11 @@ extension ViewController: UICollectionViewDataSource{
 extension ViewController: UICollectionViewDelegateFlowLayout{
     
     
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let squareSize = CGFloat(collectionView.frame.width/2.5)
-        let size = CGSize(width: squareSize, height: squareSize)
+        let size = CGSize(width: 110, height: squareSize)
         return size
     }
     
@@ -199,6 +240,10 @@ extension ViewController: UICollectionViewDelegateFlowLayout{
 //DataSource
 extension ViewController: UITableViewDataSource{
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.numberOfRows()
     }
@@ -218,6 +263,21 @@ extension ViewController: UITableViewDataSource{
 
 //Delegate
 extension ViewController: UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 14)
+        view.textColor = .secondaryLabel
+        view.textAlignment = .left
+        view.text = "All Songs"
+        view.backgroundColor = .appBackground
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 25
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
@@ -225,6 +285,8 @@ extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
     }
+    
+    
 }
 
 

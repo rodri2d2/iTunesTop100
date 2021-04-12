@@ -9,4 +9,6 @@ import Foundation
 
 protocol RemoteDataManagerProtocol: class {
     func fetchSongList(completion: @escaping (Result<FeedResponse?, Error>) -> ())
+    func fetchImage(imageUrl: String, size: String, completion: @escaping (Data) -> ())
 }
+

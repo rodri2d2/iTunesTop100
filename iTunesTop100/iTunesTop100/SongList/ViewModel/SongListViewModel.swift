@@ -62,8 +62,8 @@ class SongListViewModel{
      
         let sanitizedArray = Array(aguaSongs.joined())
     
-        self.waterRelatedList = sanitizedArray.map { (list) -> SongListCellViewModel in
-            return SongListCellViewModel(list, dataManager: self.dataManager)
+        self.waterRelatedList = sanitizedArray.map { (list) -> WaterRelatedCellViewModel in
+            return WaterRelatedCellViewModel(list, dataManager: self.dataManager)
         }
     }
     

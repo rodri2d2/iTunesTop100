@@ -9,6 +9,8 @@ import Foundation
 
 
 class RemoteDataManagerImpl: RemoteDataManagerProtocol{
+
+    
     
     
     // MARK: - Class properties
@@ -25,5 +27,11 @@ class RemoteDataManagerImpl: RemoteDataManagerProtocol{
         let request = FeedResquest()
         self.networkService.fetchData(this: request, for: completion)
     }
+    
+    func fetchImage(imageUrl: String, size: String, completion: @escaping (Data) -> ()) {
+        self.networkService.fetchImage(imageUrl: imageUrl, size: size, completion: completion)
+    }
+    
+    
 }
 

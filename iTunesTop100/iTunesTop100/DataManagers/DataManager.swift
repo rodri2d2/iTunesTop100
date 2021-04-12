@@ -26,3 +26,10 @@ extension DataManager: SongListDataManager{
         remoteManager.fetchSongList(completion: completion)
     }
 }
+
+
+extension DataManager: ImageService {    
+    func fetchImage(imageUrl: String, size: String, completion: @escaping (Data) -> ()) {
+        remoteManager.fetchImage(imageUrl: imageUrl, size: size, completion: completion)
+    }
+}

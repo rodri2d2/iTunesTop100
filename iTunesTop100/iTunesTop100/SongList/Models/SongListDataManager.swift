@@ -8,6 +8,6 @@
 import Foundation
 
 
-protocol SongListDataManager: class {
+protocol SongListDataManager: class, ImageService {
     func fetchSongList(completion: @escaping (Result<FeedResponse?, Error>) -> ())
 }

@@ -16,6 +16,8 @@ class SongListCell: UITableViewCell {
             guard let viewModel = viewModel else { return  }
             self.artistLabel.text = viewModel.artistNameText
             self.songLabel.text   = viewModel.songNameText
+            self.viewModel?.delegate = self
+        
         }
     }
     
@@ -42,10 +44,10 @@ class SongListCell: UITableViewCell {
         return view
     }()
     
-    private lazy var algumImageView: UIImageView = {
-        let view = UIImageView(frame: CGRect(x: .zero, y: .zero, width: 60, height: 60))
-        view.image = UIImage(systemName: "person")
+    private lazy var albumImageView: UIImageView = {
+        let view = UIImageView()
         view.contentMode = .scaleAspectFit
+        view.clipsToBounds = true
         return view
     }()
     
@@ -132,10 +134,40 @@ extension SongListCell{
     }
     
     private func setupAlbumImageView(){
-        self.containerView.addSubview(algumImageView)
+        self.containerView.addSubview(albumImageView)
         
         //Constraints
-        self.algumImageView.constraintFourPoints(on: self.containerView, withTop: 16, bottom: 16, leading: 4, trailing: 280)
+        self.albumImageView.constraintFourPoints(on: self.containerView, withTop: 16, bottom: 16, leading: 4, trailing: 300)
+        
+        //Design
+        self.albumImageView.layer.masksToBounds = true
+        albumImageView.layer.cornerRadius = CGFloat(12)
+
+        
     }
     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+extension SongListCell: SongListCellViewModelDelegate{
+    func didFinishFetchImage() {
+        if let image = viewModel?.albumImage{
+            albumImageView.image = UIImage(data: image)
+        }
+    }
 }
