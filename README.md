@@ -13,6 +13,8 @@ The main goal for this version is to create an app to access a remote server tha
 Actually, the main goal is to apply MVVM architecture correctly, create a Network layer that is easy to implement and expand it if is needed, also, create a useful and beautiful user interface based only on code files no NIB or story board at all
 ```
 
+> NOTE: App not finishe yet
+
 ### This app will implement:
 - [X] URLSession
 - [X] DispatchQueue
@@ -26,9 +28,7 @@ Actually, the main goal is to apply MVVM architecture correctly, create a Networ
 ## Samples
 
 <p float="left">
-  <img src="https://github.com/rodri2d2/TheRealmNotebookApp/blob/hotfix/v1.01/gifs/1.gif" width="200" />
-  <img src="https://github.com/rodri2d2/TheRealmNotebookApp/blob/hotfix/v1.01/gifs/2.gif" width="200" />
-  <img src="https://github.com/rodri2d2/TheRealmNotebookApp/blob/hotfix/v1.01/gifs/3.gif" width="200" /> 
+  <img src="https://github.com/rodri2d2/iTunesTop100/blob/develop/gifs/sample1.gif" width="200" />
 </p>
 <br />
 
