@@ -14,7 +14,7 @@ The main goal for this version is to create an app to access a remote server tha
 Actually, the main goal is to apply MVVM architecture correctly, create a Network layer that is easy to implement and expand it if is needed, also, create a useful and beautiful user interface based only on code files no NIB or story board at all
 ```
 
-> NOTE: App not finishe yet
+> NOTE: App not finished yet
 
 ### This app will implement:
 - [X] URLSession
