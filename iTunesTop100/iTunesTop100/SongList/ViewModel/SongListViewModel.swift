@@ -12,11 +12,12 @@ class SongListViewModel{
     
     
     // MARK: - Class properties
-    let dataManager: SongListDataManager
+    let dataManager:       SongListDataManager
     var viewModelDeledate: SongListViewModelDelegate?
-    var hasWaterRelatedSong = false
-    var songList:         [CellViewModel] = []
-    var waterRelatedList: [CellViewModel] = []
+    var lastLoad:          Date?
+    var songList:          [ListResult]?
+    var allSongsList:      [CellViewModel] = []
+    var waterRelatedList:  [CellViewModel] = []
     
     
     // MARK: - Lifecycle
@@ -25,15 +26,18 @@ class SongListViewModel{
     }
     
     // MARK: - Class functionalities
-    private func loadData(){
+    private func loadDataFromServer(_ predicate:String = ""){
         self.dataManager.fetchSongList { (result) in
             switch result {
             
             case .success(let response):
-                if let songList = response?.feed?.songList{
-                    self.prepareList(songList: songList)
-                    self.searchForWaterRelateSongs(songList: songList)
-                    self.viewModelDeledate?.didFinishFetchSongList()
+            if let songList = response?.feed?.songList{
+                    if predicate.isEmpty{
+                        self.prepareList(songList: songList)
+                        self.searchForWaterRelateSongs(songList: songList)
+                    }else{
+                        self.searchForSong(songList: songList, predicate: predicate)
+                    }
                 }
             
             case .failure(let error):
@@ -42,13 +46,27 @@ class SongListViewModel{
         }
     }
     
+    private func loadLocalData(_ predicate: String = ""){
+        
+        if let songList = self.songList{
+            if predicate.isEmpty{
+                self.prepareList(songList: songList)
+            }else{
+                self.searchForSong(songList: songList, predicate: predicate)
+            }
+        }else{
+            loadDataFromServer()
+        }
+    }
+    
     
     private func prepareList(songList: [ListResult]){
         
         for song in songList {
-            self.songList.append(SongListCellViewModel(song, dataManager: dataManager))
+            self.allSongsList.append(SongListCellViewModel(song, dataManager: dataManager))
         }
         
+       self.viewModelDeledate?.didFinishFetchSongList()
     }
     
     private func searchForWaterRelateSongs(songList: [ListResult]){
@@ -67,28 +85,49 @@ class SongListViewModel{
         }
     }
     
+    private func searchForSong(songList: [ListResult], predicate: String){
+        self.allSongsList.removeAll()
+        for song in songList{
+            if song.songName.lowercased().contains(predicate.lowercased()){
+                self.prepareList(songList: [song])
+            }
+        }
+    }
+    
     func viewWasLoad(){
-        loadData()
+        
+        if lastLoad == nil {
+            lastLoad = Date()
+            loadDataFromServer()
+        }else{
+            let expirationTime: TimeInterval = 60 * 10
+            guard let lastLoad = self.lastLoad else {  return }
+            if Date().timeIntervalSince(lastLoad) < expirationTime {
+               loadLocalData()
+            }
+        }
+        
+        
     }
     
 }
 
 
-// MARK: - Extension to repond tableView demands
+// MARK: - Extension to respond tableView demands
 extension SongListViewModel{
     
     func numberOfRows()->Int{
-        return self.songList.count
+        return self.allSongsList.count
     }
     
     func tableCellViewModel(indexPath: IndexPath) -> CellViewModel?{
-        guard indexPath.row < songList.count else { return nil }
-        return songList[indexPath.row]
+        guard indexPath.row < allSongsList.count else { return nil }
+        return allSongsList[indexPath.row]
     }
     
 }
 
-
+// MARK: - Extension to respond collectionView demands
 extension SongListViewModel{
     
     func numberOfItems() -> Int{
@@ -100,4 +139,26 @@ extension SongListViewModel{
         return waterRelatedList[indexPath.row]
     }
     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// MARK: - Extension for Search bar
+extension SongListViewModel{
+    func searchForThisText(predicate: String){
+        loadDataFromServer(predicate)
+    }
 }

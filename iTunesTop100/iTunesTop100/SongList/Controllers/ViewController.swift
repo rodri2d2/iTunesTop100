@@ -58,6 +58,16 @@ class ViewController: UIViewController {
         return view
     }()
     
+    private lazy var searchItemButton: UIBarButtonItem = {
+        let view = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(didPressSearchButton))
+        return view
+    }()
+    
+    private lazy var searchBar:UISearchBar = {
+        let view = UISearchBar()
+        return view
+    }()
+    
     // MARK: - Lifecycle
     init(viewModel: SongListViewModel) {
         self.viewModel = viewModel
@@ -108,7 +118,8 @@ extension ViewController{
         setupTableView()
     }
     private func setupNavigationBar(){
-        self.title = "Songs..."
+        styleNavigationBar()
+        setupSearchBar()
     }
     
     private func setupCollectionTitle(){
@@ -179,6 +190,74 @@ extension ViewController{
 
 
 
+// MARK: - Extension for Navigation bar style and functionalities
+extension ViewController{
+    
+    //Actions
+    @objc private func didPressSearchButton(){
+        showHideSearchBar(should: true)
+    }
+    
+    // MARK: - Functionalities
+    private func styleNavigationBar(){
+    
+        self.title = "Songs..."
+        self.navigationController?.navigationBar.backgroundColor = .white
+        self.navigationController?.navigationBar.tintColor = .blue
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.tintColor = .aqua
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.aqua]
+        
+        
+    }
+    
+    private func setupSearchBar(){
+        
+        //Navigation bar button
+        self.navigationItem.rightBarButtonItem = searchItemButton
+        
+        //Search bar it self
+        self.searchBar.delegate = self
+        self.searchBar.sizeToFit()
+        self.searchBar.showsCancelButton = true
+        self.searchBar.placeholder = "Type song name"
+    }
+    
+    
+    private func showHideSearchBar(should show: Bool){
+        
+        if show {
+            self.navigationItem.rightBarButtonItem = nil
+            self.navigationItem.titleView = self.searchBar
+            self.navigationItem.setHidesBackButton(true, animated: true)
+            self.searchBar.becomeFirstResponder()
+        }else{
+            self.navigationItem.titleView = nil
+            self.navigationItem.rightBarButtonItem = searchItemButton
+        }
+    }
+    
+    
+    
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // MARK: - Extensions for CollectionView
@@ -206,9 +285,6 @@ extension ViewController: UICollectionViewDataSource{
 
 //Delegate
 extension ViewController: UICollectionViewDelegateFlowLayout{
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let squareSize = CGFloat(collectionView.frame.width/2.5)
@@ -311,5 +387,34 @@ extension ViewController: SongListViewModelDelegate{
     func didFinishFetchSongList() {
         self.tableView.reloadData()
         self.collectionView.reloadData()
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+extension ViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+            self.viewModel.searchForThisText(predicate: searchBar.text!)
+   
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        showHideSearchBar(should: false)
+        self.viewModel.viewWasLoad()
     }
 }
