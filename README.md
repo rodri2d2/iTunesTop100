@@ -1,5 +1,6 @@
 # iTunesTop100
 This iOS app displays the top 100 songs based on the iTunes API
+
 ![Swift Version](https://img.shields.io/badge/Swift-5.3-F16D39.svg?style=flat)
 
 A simple app that loads a song listwhere you can create notebook and notes inside it. This a pretty simple but functional app.
@@ -13,7 +14,7 @@ The main goal for this version is to create an app to access a remote server tha
 Actually, the main goal is to apply MVVM architecture correctly, create a Network layer that is easy to implement and expand it if is needed, also, create a useful and beautiful user interface based only on code files no NIB or story board at all
 ```
 
-> NOTE: App not finishe yet
+> NOTE: App not finished yet
 
 ### This app will implement:
 - [X] URLSession
