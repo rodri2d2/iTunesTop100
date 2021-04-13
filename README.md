@@ -11,9 +11,10 @@ A simple app that loads a song list based on iTunes RSS Generator. This is a pre
 The main goal for this version is to create an app to access a remote server that simply show the list on the screen.
 
 ```
-Actually, the main goal is to apply MVVM architecture correctly,
-create a Network layer that is easy to implement and expand it if is needed, also, 
-create a useful and beautiful user interface based only on code files no NIB or story board at all
+Actually, the main goal is:
+- To apply MVVM architecture correctly.
+- Create a Network layer that is easy to implement and expand it if is needed.
+- Create a useful and beautiful user interface based only on code files no NIB or storyboard at all
 ```
 
 > NOTE: App not finished yet
@@ -29,6 +30,8 @@ create a useful and beautiful user interface based only on code files no NIB or 
 
 
 ## Samples
+
+> NOTE: App is not finished yet!
 
 <p float="left">
   <img src="https://github.com/rodri2d2/iTunesTop100/blob/develop/gifs/sample1.gif" width="200" />
