@@ -1,5 +1,6 @@
 # iTunesTop100
 This iOS app displays the top 100 songs based on the iTunes API
+
 ![Swift Version](https://img.shields.io/badge/Swift-5.3-F16D39.svg?style=flat)
 
 A simple app that loads a song listwhere you can create notebook and notes inside it. This a pretty simple but functional app.
