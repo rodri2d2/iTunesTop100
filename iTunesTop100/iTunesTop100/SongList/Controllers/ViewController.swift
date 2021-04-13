@@ -85,8 +85,7 @@ class ViewController: UIViewController {
         self.viewModel.viewWasLoad()
         setupOutlets()
     }
-    
-    
+
 }
 
 
@@ -126,15 +125,14 @@ extension ViewController{
         
         self.view.addSubview(collectionTitle)
         
-        
+        //Constraints
         NSLayoutConstraint.activate([
             
             self.collectionTitle.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
             self.collectionTitle.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
             self.collectionTitle.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
         ])
-        
-        
+  
     }
     
     private func setupCollectionView(){
@@ -149,9 +147,6 @@ extension ViewController{
             collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
             collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 0.5)
         ])
-        
-        
-        
     }
     
     private func setupContainerView(){
@@ -167,10 +162,8 @@ extension ViewController{
     }
     
     private func setupTableView(){
-        
         self.containerView.addSubview(tableView)
         tableView.pin(to: containerView)
-        
     }
     
 }
@@ -200,15 +193,14 @@ extension ViewController{
     
     // MARK: - Functionalities
     private func styleNavigationBar(){
-    
+        
         self.title = "Songs..."
         self.navigationController?.navigationBar.backgroundColor = .white
         self.navigationController?.navigationBar.tintColor = .blue
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.navigationBar.tintColor = .aqua
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.aqua]
-        
-        
+  
     }
     
     private func setupSearchBar(){
@@ -236,11 +228,6 @@ extension ViewController{
             self.navigationItem.rightBarButtonItem = searchItemButton
         }
     }
-    
-    
-    
-
-    
 }
 
 
@@ -408,12 +395,11 @@ extension ViewController: SongListViewModelDelegate{
 
 extension ViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            self.viewModel.searchForThisText(predicate: searchBar.text!)
-   
+        self.viewModel.searchForThisText(predicate: searchBar.text!)
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
         showHideSearchBar(should: false)
         self.viewModel.viewWasLoad()
     }

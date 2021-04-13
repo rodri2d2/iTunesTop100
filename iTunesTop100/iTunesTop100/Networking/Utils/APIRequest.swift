@@ -11,12 +11,19 @@ import Foundation
 let apiURL = "https://rss.itunes.apple.com/api/v1/es/itunes-music/top-songs/all/100/explicit.json"
 
 protocol APIRequest {
-    
     associatedtype Response: Codable
     var httpMethod: HTTPMethod { get }
 }
 
 
+
+
+
+
+
+
+
+// MARK: - Self extension for some self implementations
 extension APIRequest{
     
     var baseURL: URL {
@@ -25,9 +32,8 @@ extension APIRequest{
             guard let baseURL = URL(string: apiURL) else { fatalError("URL not valid") }
             return baseURL
         }
-        
+        //
         set{  }
-
     }
     
     func baseRequest() -> URLRequest {

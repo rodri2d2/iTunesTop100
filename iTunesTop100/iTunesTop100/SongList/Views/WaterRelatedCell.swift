@@ -12,12 +12,12 @@ class WaterRelatedCell: UICollectionViewCell {
     // MARK: - Class properties
     var viewModel: WaterRelatedCellViewModel?{
         didSet{
+            
             guard let viewModel = viewModel else { return  }
             self.viewModel?.delegate = self
             self.artistLabel.text = viewModel.artistNameText
             self.songLabel.text = viewModel.songNameText
-            
-            
+            //
             if let image = viewModel.albumImage{
                 self.albumImageView.image = UIImage(data: image)
                 
@@ -75,7 +75,6 @@ class WaterRelatedCell: UICollectionViewCell {
         self.artistLabel.text     = nil
         self.songLabel.text       = nil
     }
-    
 }
 
 
@@ -109,7 +108,6 @@ extension WaterRelatedCell{
         self.containerView.backgroundColor = .appBackground
     }
     
-    
     private func setupAlbumImageView(){
         
         containerView.addSubview(albumImageView)
@@ -122,7 +120,6 @@ extension WaterRelatedCell{
         albumImageView.layer.shadowColor = UIColor.gray.cgColor
         albumImageView.layer.shadowOffset = CGSize(width: 2, height: 6)
         albumImageView.layer.shadowOpacity = 0.3
-        
     }
     
     private func setupArtistLabel(){
@@ -134,8 +131,6 @@ extension WaterRelatedCell{
         self.containerView.addSubview(songLabel)
         self.songLabel.constraintFourPoints(on: containerView, withTop: 132, bottom: 8, leading: 2, trailing: 2)
     }
-    
-    
 }
 
 

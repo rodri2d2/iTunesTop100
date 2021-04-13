@@ -9,7 +9,6 @@ import Foundation
 
 
 struct FeedResquest: APIRequest {
-    
     var httpMethod: HTTPMethod = .get
     typealias Response = FeedResponse
 }

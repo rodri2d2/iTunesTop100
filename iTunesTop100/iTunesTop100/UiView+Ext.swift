@@ -22,10 +22,10 @@ extension UIView {
      Being at some ViewController or a Class that has a implementation of UIView, send this view property as parameter
      ~~~
      class ViewController: UIViewController {
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            tableView.pin(to: self.view)
-        }
+         override func viewDidLoad() {
+             super.viewDidLoad()
+             tableView.pin(to: self.view)
+         }
      }
      ~~~
      
@@ -53,7 +53,7 @@ extension UIView {
     ///   - leading: as type CGFloat
     ///   - trailing:  as type CGFloat and will be converto to Negative
     func constraintFourPoints(on superView: UIView, withTop: CGFloat, bottom: CGFloat, leading: CGFloat, trailing: CGFloat){
-
+        
         if let _ = superview {
             translatesAutoresizingMaskIntoConstraints                                  = false
             topAnchor.constraint      (equalTo:      superview!.topAnchor, constant: withTop  ).isActive  = true

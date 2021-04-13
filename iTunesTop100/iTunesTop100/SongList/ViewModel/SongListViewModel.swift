@@ -31,7 +31,8 @@ class SongListViewModel{
             switch result {
             
             case .success(let response):
-            if let songList = response?.feed?.songList{
+                if let songList = response?.feed?.songList{
+                    
                     if predicate.isEmpty{
                         self.prepareList(songList: songList)
                         self.searchForWaterRelateSongs(songList: songList)
@@ -39,7 +40,7 @@ class SongListViewModel{
                         self.searchForSong(songList: songList, predicate: predicate)
                     }
                 }
-            
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -65,8 +66,7 @@ class SongListViewModel{
         for song in songList {
             self.allSongsList.append(SongListCellViewModel(song, dataManager: dataManager))
         }
-        
-       self.viewModelDeledate?.didFinishFetchSongList()
+        self.viewModelDeledate?.didFinishFetchSongList()
     }
     
     private func searchForWaterRelateSongs(songList: [ListResult]){
@@ -77,9 +77,9 @@ class SongListViewModel{
                 list.songName.lowercased().contains(word)
             }
         }
-     
+        
         let sanitizedArray = Array(aguaSongs.joined())
-    
+        
         self.waterRelatedList = sanitizedArray.map { (list) -> WaterRelatedCellViewModel in
             return WaterRelatedCellViewModel(list, dataManager: self.dataManager)
         }
@@ -103,14 +103,28 @@ class SongListViewModel{
             let expirationTime: TimeInterval = 60 * 10
             guard let lastLoad = self.lastLoad else {  return }
             if Date().timeIntervalSince(lastLoad) < expirationTime {
-               loadLocalData()
+                loadLocalData()
             }
         }
-        
-        
     }
-    
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // MARK: - Extension to respond tableView demands
@@ -124,8 +138,25 @@ extension SongListViewModel{
         guard indexPath.row < allSongsList.count else { return nil }
         return allSongsList[indexPath.row]
     }
-    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // MARK: - Extension to respond collectionView demands
 extension SongListViewModel{
@@ -138,7 +169,6 @@ extension SongListViewModel{
         guard indexPath.row < waterRelatedList.count else { return nil }
         return waterRelatedList[indexPath.row]
     }
-    
 }
 
 

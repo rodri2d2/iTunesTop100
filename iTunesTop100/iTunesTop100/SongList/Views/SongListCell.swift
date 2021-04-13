@@ -17,7 +17,7 @@ class SongListCell: UITableViewCell {
             self.artistLabel.text = viewModel.artistNameText
             self.songLabel.text   = viewModel.songNameText
             self.viewModel?.delegate = self
-        
+            
         }
     }
     
@@ -142,7 +142,7 @@ extension SongListCell{
         //Design
         self.albumImageView.layer.masksToBounds = true
         albumImageView.layer.cornerRadius = CGFloat(12)
-
+        
         
     }
     

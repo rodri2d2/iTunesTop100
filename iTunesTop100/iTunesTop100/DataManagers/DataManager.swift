@@ -20,13 +20,19 @@ class DataManager{
 }
 
 
+
+
+
+
+
+
+
 // MARK: - Extesions to simplefy the readability of each data manager protocols
 extension DataManager: SongListDataManager{
     func fetchSongList(completion: @escaping (Result<FeedResponse?, Error>) -> ()) {
         remoteManager.fetchSongList(completion: completion)
     }
 }
-
 
 extension DataManager: ImageService {    
     func fetchImage(imageUrl: String, size: String, completion: @escaping (Data) -> ()) {

@@ -15,7 +15,6 @@ class NetworkService: NSObject{
         return session
     }()
     
-    
     func fetchData<T: APIRequest>(this resquest: T, for completion: @escaping(Result<T.Response?, Error>) -> Void){
         
         let request = resquest.baseRequest()
@@ -29,8 +28,6 @@ class NetworkService: NSObject{
                 }
                 return
             }
-            
-            
             
             //Data
             if let data = data{
@@ -59,7 +56,7 @@ class NetworkService: NSObject{
     
     func fetchImage(imageUrl: String, size: String, completion: @escaping (Data) -> ()) {
         DispatchQueue.global(qos: .default).async {
-      
+            
             let sanatizedImageUrl = imageUrl.replacingOccurrences(of: "200", with: size)
             if let url = URL(string: sanatizedImageUrl),
                let data = try? Data(contentsOf: url) {

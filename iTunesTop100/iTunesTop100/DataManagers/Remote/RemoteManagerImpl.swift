@@ -8,21 +8,27 @@
 import Foundation
 
 
-class RemoteDataManagerImpl: RemoteDataManagerProtocol{
+class RemoteDataManagerImpl{
 
-    
-    
-    
     // MARK: - Class properties
     var networkService: NetworkService
-    
-    
+        
     // MARK: - Lifecycle
     init(service: NetworkService){
         self.networkService = service
     }
-    
-    // MARK: - Protocol implementatios
+}
+
+
+
+
+
+
+
+
+
+// MARK: - Extension for RemoteDataManagerProtocol
+extension RemoteDataManagerImpl: RemoteDataManagerProtocol{
     func fetchSongList(completion: @escaping (Result<FeedResponse?, Error>) -> ()) {
         let request = FeedResquest()
         self.networkService.fetchData(this: request, for: completion)
@@ -31,7 +37,5 @@ class RemoteDataManagerImpl: RemoteDataManagerProtocol{
     func fetchImage(imageUrl: String, size: String, completion: @escaping (Data) -> ()) {
         self.networkService.fetchImage(imageUrl: imageUrl, size: size, completion: completion)
     }
-    
-    
 }
 

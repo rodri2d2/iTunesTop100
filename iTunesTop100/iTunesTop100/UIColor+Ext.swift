@@ -12,7 +12,6 @@ extension UIColor {
         return UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1)
     }
     
-    
     static var aqua: UIColor{
         return UIColor(red: 4/255, green: 196/255, blue: 217/255, alpha: 0.85)
     }
